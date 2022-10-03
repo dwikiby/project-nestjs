@@ -25,6 +25,16 @@ export class MahasiswaService {
         return mahasiswaNew
     }
 
+    async update(id, data: Partial<tbmahasiswaDTO>) { //method update data by id
+        await this.mahasiswaRepository.update({ id }, data);
+        return await this.mahasiswaRepository.findOne({ where: { id } })
+    }
+
+    async hapusData(id) {
+        await this.mahasiswaRepository.delete({ id });
+        return `data id : ${id} deleted : true`
+    }
+
     async lihatSemua() {
         return 'ini adalah service';
     }

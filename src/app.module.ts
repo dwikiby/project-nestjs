@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MahasiswaModule } from './mahasiswa/mahasiswa.module';
 import { tbmahasiswa } from './mahasiswa/mahasiswa.entity';
+import { APP_FILTER } from '@nestjs/core';
+import { HttpErrorFilter } from './shared/http-error.filter';
 
 @Module({
   // imports: [],
@@ -26,6 +28,11 @@ import { tbmahasiswa } from './mahasiswa/mahasiswa.entity';
     }
   ), MahasiswaModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService, {
+      provide: APP_FILTER,
+      useClass: HttpErrorFilter
+    }
+  ],
 })
 export class AppModule { }
