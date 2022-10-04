@@ -22,7 +22,7 @@ export class MahasiswaService {
     async create(data: tbmahasiswaDTO) { // method post data ke tabel mahasiswa
         const mahasiswaNew = await this.mahasiswaRepository.create(data);
         await this.mahasiswaRepository.save(mahasiswaNew)
-        return mahasiswaNew
+        return mahasiswaNew;
     }
 
     async update(id, data: Partial<tbmahasiswaDTO>) { //method update data by id
@@ -32,7 +32,7 @@ export class MahasiswaService {
 
     async hapusData(id) {
         await this.mahasiswaRepository.delete({ id });
-        return `data id : ${id} deleted : true`
+        return `data id : ${id} has been deleted : true`
     }
 
     async lihatSemua() {

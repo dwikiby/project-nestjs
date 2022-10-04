@@ -13,8 +13,8 @@ import { HttpErrorFilter } from './shared/http-error.filter';
   // providers: [AppService],
 
   imports: [TypeOrmModule.forRoot(
-    { //konfigurasi koneksi database
-      type: 'mysql',
+    { //konfigurasi koneksi database postgreSQL
+      type: 'postgres',
       host: process.env.DB_HOST,
       port: parseInt(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
