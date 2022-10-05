@@ -6,6 +6,8 @@ import { MahasiswaModule } from './mahasiswa/mahasiswa.module';
 import { tbmahasiswa } from './mahasiswa/mahasiswa.entity';
 import { APP_FILTER } from '@nestjs/core';
 import { HttpErrorFilter } from './shared/http-error.filter';
+import { PegawaiModule } from './pegawai/pegawai.module';
+import { tbpegawai } from './pegawai/pegawai.entity';
 
 @Module({
   // imports: [],
@@ -20,13 +22,13 @@ import { HttpErrorFilter } from './shared/http-error.filter';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PW,
       database: process.env.DB_NAME,
-      entities: [tbmahasiswa],
+      entities: [tbpegawai],
       logging: true,
       dropSchema: false,
       synchronize: true,
 
     }
-  ), MahasiswaModule],
+  ), PegawaiModule],
   controllers: [AppController],
   providers: [
     AppService, {
